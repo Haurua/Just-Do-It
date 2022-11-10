@@ -1,0 +1,51 @@
+{% extends 'just_do_it/base.html' %}
+{% load just_do_it.custom %}
+{% load static %}
+
+{% block nav1 %}
+    <a href="{% url 'just-do-it' %}">JUST. DO. IT.</a>
+    <a href="{% url 'just-do-it-create' %}">CREATE TASK.</a>
+{% endblock %}
+
+{% block content %}
+    {% if data %}
+        <table>
+            <tr>
+                <th>
+                    TASK.
+                </th>
+                <th>
+                    DONE(?)
+                </th>
+            </tr>
+            {% for obj in data %}
+                {% if not obj.completed %}
+                    <tr>
+                        <td>
+                            <a class="task" href="{% url 'just-do-it-detail' obj.id %}">{{ obj.title|upper }}</a>
+                        </td>
+                        <td>
+                            {{ obj.completed|boolean_val }}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if obj.completed %}
+                    <tr>
+                        <td>
+                            <a class="task-complete"
+                               href="{% url 'just-do-it-detail' obj.pk %}">{{ obj.title|upper }}</a>
+                        </td>
+                        <td>
+                            {{ obj.completed|boolean_val }}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% else %}
+        <div class="empty-list">
+            <h2>LIST IS EMPTY.</h2>
+            <img src="{% static 'just_do_it/img/pointer.png' %}" alt="Pointer">
+        </div>
+    {% endif %}
+{% endblock %}

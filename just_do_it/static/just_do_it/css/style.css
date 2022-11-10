@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500;700;800;900&display=swap');
+
+* {
+    /* Position */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Style */
+    font-family: 'Cairo Play', cursive;
+}
+
+a {
+    /* Style */
+    text-decoration: none;
+    color: inherit;
+}
+
+.task-complete {
+    /* Style */
+    text-decoration: line-through;
+    color: #9f9f9f;
+}
+
+a,
+button {
+    /* Position */
+    cursor: pointer;
+    /* Style */
+    border: none;
+    background: none;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    font-family: inherit;
+    transition: 0.35s;
+}
+
+a:hover,
+button:hover {
+    /* Style */
+    color: rgb(114, 191, 128);
+    animation: shake-anim .5s ease 0s 1 normal forwards;
+}
+
+div.grid-container {
+    /* Position */
+    margin: 25px auto;
+    padding: 0 15px;
+    max-width: 600px;
+    /* Layout */
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, max-content);
+    grid-template-areas: "header" "nav1" "main" "nav2";
+}
+
+header {
+    /* Layout */
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    /* Position */
+    cursor: pointer;
+    width: 175px;
+    /* Style */
+    filter: drop-shadow(3px 3px 0 rgba(114, 191, 128, 0.75));
+        animation: wobble-anim 2s ease-in-out 0s infinite normal forwards;
+}
+
+nav {
+    /* Position */
+    grid-area: nav1;
+    padding: 5px 10px;
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+}
+
+nav h1 {
+    /* Style */
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+aside {
+    /* Position */
+    grid-area: nav2;
+    padding: 5px 10px;
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    /* Position */
+    grid-area: main;
+    padding: 10px 20px;
+    /* Style */
+    box-shadow: 3px 3px 0 rgba(114, 191, 128, 0.75);
+    background-color: #ebebeb;
+}
+
+main table {
+    /* Position */
+    width: 100%;
+    /* Style */
+    table-layout: fixed;
+}
+
+main table th {
+    /* Style */
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+main table td {
+    /* Position */
+    padding-top: 5px;
+    /* Style */
+    text-align: center;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+main table td a {
+    /* Layout */
+    display: inline-block;
+    /* Style */
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+main table td a:hover {
+    /* Style */
+    animation: shake-anim .5s ease 0s 1 normal forwards;
+}
+
+main .empty-list {
+    /* Position */
+    position: relative;
+    padding: 30px 0;
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    /* Styling */
+    text-align: center;
+}
+
+main .empty-list img {
+    /* Position */
+    position: absolute;
+    right: 15px;
+    top: -20px;
+    width: 75px;
+    /* Style */
+    filter: drop-shadow(3px 3px 0 rgba(114, 191, 128, 0.75));
+    animation: updown-anim 7s ease 0s infinite normal forwards;
+}
+
+main form h2 {
+    /* Style */
+    font-size: 1.3rem;
+}
+
+main form .form-title,
+main form .form-description {
+    /* Position */
+    box-sizing: border-box;
+    padding: 5px 15px;
+    width: 100%;
+    /* Style */
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+main form .form-description {
+    /* Position */
+    resize: none;
+    margin-bottom: 12px;
+    height: 175px;
+}
+
+main form .form-completed {
+    /* Layout */
+    display: none;
+}
+
+main form .form-buttons {
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+}
+
+main button {
+    /* Position */
+    cursor: pointer;
+    /* Style */
+    border: none;
+    background: none;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    font-family: inherit;
+    transition: 0.15s;
+}
+
+main button:hover {
+    /* Style */
+    animation: shake-anim .5s ease 0s 1 normal forwards;
+}
+
+main button:active {
+    /* Style */
+    color: rgb(114, 191, 128);
+}
+
+main p {
+    margin-top: -5px;
+    padding: 0 10px 5px;
+    font-size: 1.1rem;
+}
+

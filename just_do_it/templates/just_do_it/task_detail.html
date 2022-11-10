@@ -1,0 +1,27 @@
+{% extends 'just_do_it/base.html' %}
+{% load just_do_it.custom %}
+{% load static %}
+
+{% block nav1 %}
+    <a href="javascript:void(0)">[{{ data.created|date_only }}]</a>
+    <a href="{% url 'just-do-it' %}">BACK TO LIST.</a>
+{% endblock %}
+
+{% block content %}
+    <h3>TITLE.</h3>
+    <p>{{ data.title }}</p>
+    {% if data.description %}
+        <h3>DESCRIPTION.</h3>
+        <p>{{ data.description|linebreaks }}</p>
+    {% endif %}
+    <h3>COMPLETED(?)</h3>
+    <p>{{ data.completed|boolean_val }}</p>
+{% endblock %}
+
+{% block nav2 %}
+    <form id="id_form_delete" method="post" action="{% url 'just-do-it-delete' data.pk %}">
+        {% csrf_token %}
+        <button type="button" onclick="submitDeleteForm()">DELETE.</button>
+    </form>
+    <a href="{% url 'just-do-it-update' data.pk %}">REVISE.</a>
+{% endblock %}

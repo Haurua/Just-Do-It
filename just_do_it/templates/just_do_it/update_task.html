@@ -1,0 +1,28 @@
+{% extends 'just_do_it/base.html' %}
+{% load just_do_it.custom %}
+{% load static %}
+
+{% block nav1 %}
+    REVISING TASK.
+    <a href="{% url 'just-do-it' %}">CANCEL.</a>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="id_form_update">
+        {% csrf_token %}
+        <h2>{{ form.title.label|upper }}.</h2>
+        {{ form.title }}
+        <h2>{{ form.description.label|upper }}.</h2>
+        {{ form.description }}
+        {{ form.completed }}
+    </form>
+{% endblock %}
+
+{% block nav2 %}
+    {% if not completed %}
+        <button type="button" onclick="markComplete()">MARK AS COMPLETE.</button>
+    {% else %}
+        <button type="button" onclick="markIncomplete()">MARK AS INCOMPLETE.</button>
+    {% endif %}
+    <button type="button" onclick="submitUpdateForm()">SAVE.</button>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    {% load just_do_it.custom %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'just_do_it/favicon/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'just_do_it/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'just_do_it/css/animation.css' %}">
+    <script src="{% static 'just_do_it/js/script.js' %}"></script>
+    <title>JUST. DO. IT.</title>
+</head>
+<body>
+
+<div class="grid-container">
+    <header>
+        <img src="{% static 'just_do_it/img/shia.png' %}" alt="Shia">
+    </header>
+    <nav>
+        {% block nav1 %}
+        {% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <aside>
+        {% block nav2 %}
+        {% endblock %}
+    </aside>
+</div>
+</body>
+</html>

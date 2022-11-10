@@ -1,0 +1,23 @@
+{% extends 'just_do_it/base.html' %}
+{% load just_do_it.custom %}
+{% load static %}
+
+{% block nav1 %}
+    <a href="javascript:void(0)">CREATING TASK.</a>
+    <a href="{% url 'just-do-it' %}">CANCEL.</a>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="id_form_create">
+        {% csrf_token %}
+        <h2>{{ form.title.label|upper }}.</h2>
+        {{ form.title }}
+        <h2>{{ form.description.label|upper }}.</h2>
+        {{ form.description }}
+    </form>
+{% endblock %}
+
+{% block nav2 %}
+    <div></div>
+    <button id="id_button_create" type="button" onclick="submitCreateForm()">SAVE.</button>
+{% endblock %}
